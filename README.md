@@ -1,51 +1,92 @@
-Machine Learning Internship Projects @ Cantilever
+# Machine Learning Internship Projects at Cantilever
 
-This repository contains the projects I completed during my one-month Machine Learning Internship at Cantilever from October to November 2025. This opportunity allowed me to apply my skills in a professional environment and contribute to meaningful projects.
+This repository contains the projects completed during my one-month Machine Learning Internship at Cantilever (October–November 2025).
+The internship provided hands-on exposure to real-world machine learning workflows and practical problem-solving in a professional environment.
 
-Projects Overview
+## 📂 Projects Overview
 
-This repository is organized into folders, with each folder containing a distinct project.
+| Project No. | Title | Description |
+| :--- | :--- | :--- |
+| 1 | **Sentiment Analysis System** | NLP-based classifier that detects positive or negative sentiment in movie reviews. |
+| 2 | **Credit Card Fraud Detection** | A classification model to detect fraudulent credit card transactions from a highly imbalanced dataset. |
 
-Sentiment Analysis System: A classical NLP project to classify movie reviews as either positive or negative.
+---
 
-[Project 2 Title - Coming Soon]: A brief description of your second project will go here.
+## Project 1: Sentiment Analysis System
 
-1. Sentiment Analysis System
+This project implements a complete workflow for sentiment classification using Natural Language Processing techniques. The goal is to train a machine learning model that predicts whether a given text review is positive or negative.
 
-This project is a complete end-to-end pipeline for sentiment analysis, a core task in Natural Language Processing (NLP). The goal is to train a model that can accurately determine the sentiment of a given text.
+### Technologies Used
 
-Technologies Used
+| Category | Tools |
+| :--- | :--- |
+| **Programming Language** | Python |
+| **Machine Learning** | Scikit-learn (LinearSVC, TfidfVectorizer) |
+| **NLP Toolkit** | NLTK |
+| **Data Processing** | Pandas, NumPy |
+| **Development Environment** | JupyterLab |
 
-Languages: Python
+### Process Overview
 
-Libraries:
+1.  **Data Preprocessing:** Used the NLTK Movie Reviews dataset containing 2000 labeled reviews. Performed tokenization, stopword removal, and lemmatization.
+2.  **Feature Extraction:** Converted text into TF-IDF (Term Frequency-Inverse Document Frequency) numerical vectors.
+3.  **Model Training:** Trained a **LinearSVC (Support Vector Machine)** model on 80% of the dataset.
+4.  **Evaluation:** Achieved an accuracy of **87.50%** on the remaining 20% test data.
 
-Scikit-learn: For the SVM model and TF-IDF feature extraction.
+---
 
-NLTK (Natural Language Toolkit): For data loading and text preprocessing (tokenization, stop-word removal, lemmatization).
+## Project 2: Credit Card Fraud Detection
 
-Pandas & NumPy: For data manipulation.
+This project implements a model to identify fraudulent credit card transactions. A key challenge was handling the **highly imbalanced dataset**, where fraudulent transactions (Class 1) are a very small minority compared to legitimate ones (Class 0).
 
-JupyterLab: For interactive development.
+### Technologies Used
 
-Key Steps & Results
+| Category | Tools |
+| :--- | :--- |
+| **Programming Language** | Python |
+| **Machine Learning** | Scikit-learn (Logistic Regression, train_test_split) |
+| **Data Processing** | Pandas, NumPy |
+| **Data Source** | Kaggle API |
+| **Development Environment** | JupyterLab |
 
-Data Preprocessing: The NLTK movie reviews dataset (2000 reviews) was loaded, cleaned, and lemmatized.
+### Process Overview
 
-Feature Extraction: Cleaned text was converted into numerical vectors using the TF-IDF technique.
+1.  **Data Loading:** Used the Kaggle API to download the dataset.
+2.  **Handling Imbalance:** The dataset was found to be highly unbalanced. To address this, an **under-sampling** technique was applied. A new, balanced dataset was created by taking all 492 fraudulent transactions and randomly sampling 492 legitimate transactions.
+3.  **Data Splitting:** The new, balanced dataset (of 984 samples) was split into features (X) and targets (Y), and then further split into training (80%) and testing (20%) sets.
+4.  **Model Training:** Trained a **Logistic Regression** model on the balanced training data.
+5.  **Evaluation:** The model was evaluated for accuracy on the test data to check its performance in classifying unseen transactions.
 
-Model Training: A LinearSVC (Support Vector Machine) model was trained on 80% of the data.
+---
 
-Evaluation: The model was tested on the remaining 20% of unseen data, achieving a final accuracy of 87.50%.
+## 🚀 How to Run the Projects
 
-How to Run
+1.  **Install required libraries:**
+    ```bash
+    # This command installs all necessary packages for both projects
+    pip install jupyterlab scikit-learn nltk pandas numpy kaggle
+    ```
 
-Ensure you have Python and the required libraries installed (pip install jupyterlab scikit-learn nltk pandas numpy).
+2.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-link>
+    ```
 
-Clone this repository to your local machine.
+3.  **Navigate to the project folder:**
+    ```bash
+    cd <your-repo-name>
+    ```
 
-Navigate to the Sentiment-Analysis folder.
+4.  **Launch JupyterLab:**
+    ```bash
+    py -m jupyterlab
+    ```
 
-Launch JupyterLab by running py -m jupyterlab in your terminal.
+### Project-Specific Setup
 
-Open the SentimentAnalysis.ipynb notebook and run the cells in order.
+* **For Sentiment Analysis:** When you first run the `SentimentAnalysis.ipynb` notebook, you will need to run the cells containing `nltk.download(...)` to download the `movie_reviews`, `stopwords`, and `wordnet` datasets.
+
+* **For Credit Card Fraud Detection:** This project requires the Kaggle API.
+    1.  Go to your Kaggle account, navigate to "Settings," and click "Create New API Token."
+    2.  This will download a `kaggle.json` file.
+    3.  Place this `kaggle.json` file in the same directory as the `Credit_Card_Fraud_Detection.ipynb` notebook before running it.
